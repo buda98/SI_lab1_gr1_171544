@@ -1,15 +1,15 @@
-class Student:
+class Student:{
 	String index;
 	String firstName;
 	String lastName;
-	List<Integer> labPoints = new ArrayList<Integer>();
+	List<Integer> labPoints;
 
 	//TODO constructor
-	public Student(String index, String firstName, String lastName, int labPoints){
+	public Student(String index, String firstName, String lastName){
 		this.index=index;
 		this.firstName=firstName;
 		this.lastName=lastNae;
-		this.labPoints.add(labPoints)
+		this.labPoints = new ArrayList<Integer>();
 	}
 	//TODO seters & getters
 	public void setIndex(String newIndex){
@@ -38,7 +38,7 @@ class Student:
 	}
 	public double getAverage() {
 		//TODO
-		sum=0;
+		double sum=0;
 		for(int i=0;i<this.labPoints.size();i++){
 			sum+=labPoints.get(i);
 		}
@@ -48,5 +48,38 @@ class Student:
 	public boolean hasSignature() {
 		//TODO
 		return (this.labPoints.size>8) ? true : false;
+	}
+}
+
+class Course:{
+        List<Student> students;
+
+        public Course(){
+                this.students = new ArrayList<Student>();
+        }
+
+        public void addStudent(String index, String firstName, String LastName){
+                Student newStudent = Student(index, firstName, lastName);
+                this.students.add(newStudent);
+        }
+	
+	public void removeStudent(int positio){
+		this.students.remove(position);
+	}
+	public double avaragePoints(){
+		double sum=0;
+		for(int i=0;i<this.students.size();i++){
+                        sum+=this.students.get(i).getAverage();
+                }
+		return sum/this.students.size();
+	}
+	public int numSignatures(){
+		int sum=0;
+		for(int i=0;i<this.students.size();i++){
+			if(this.students.get(i).hasSignature()){
+				sum++;
+			}
+		}
+		return sum;
 	}
 }
